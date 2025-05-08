@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
                 <div className="relative overflow-hidden">
                   <div className="w-auto h-14 relative z-10">
                     <Image
-                      src="/images/informage.png"
+                      src="/images/informage-light.png"
                       alt="Informage Group Logo"
                       width={240}
                       height={50}
