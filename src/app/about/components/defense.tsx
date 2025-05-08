@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { IconArrowRight} from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 
 // Animation variants
 const fadeIn = {
@@ -39,7 +39,10 @@ const DefensePage = () => {
   return (
     <div className="min-h-screen flex flex-col" id="defense-section">
       {/* Hero Section */}
-      <section className="relative h-[95vh] w-full flex items-center" id="defense-section">
+      <section
+        className="relative h-[95vh] w-full flex items-center"
+        id="defense-section"
+      >
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/defense/hero.png"
@@ -69,9 +72,8 @@ const DefensePage = () => {
               variants={slideIn}
               className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed"
             >
-              Advanced electronic warfare solutions delivering tactical
-              superiority through innovative counter-unmanned systems
-              technology.
+              Reliable defense and security solutions designed to detect,
+              manage, and respond to modern threats including uncrewed aerial.
             </motion.p>
 
             <motion.div variants={fadeIn}>
@@ -102,16 +104,13 @@ const DefensePage = () => {
                 Advanced Anti-Drone Systems
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Our cutting-edge anti-drone systems utilize multi-sensor
-                detection arrays and precision countermeasures to neutralize
-                unauthorized UAV threats. Featuring AI-powered threat assessment
-                and autonomous response capabilities, our solutions provide
-                comprehensive airspace security for critical infrastructure and
-                sensitive installations.
+                Our anti-drone solutions are built to support the protection of
+                critical areas by addressing unauthorized aerial activity
+                through dependable and adaptable response measures.
               </p>
               <Button
                 variant="outline"
-                className="group border-emerald-400/30 text-emerald-400 hover:text-emerald-300 hover:bg-emerald-950/50 hover:border-emerald-400/50 transition-all duration-300"
+                className="group border-emerald-400/30 text-emerald-500 hover:text-emerald-300 hover:bg-emerald-950/50 hover:border-emerald-400/50 transition-all duration-300"
               >
                 Learn More
                 <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -169,22 +168,20 @@ const DefensePage = () => {
               className="w-full lg:w-1/2 order-2"
             >
               <Badge className="bg-blue-500/10 text-blue-400 mb-6 border-0 py-1.5 px-3 text-sm">
-                Counter-IED Solutions
+                Counter-IED Solution
               </Badge>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Advanced Anti-IED Systems
+                Advanced RCIED Jammer
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Our comprehensive anti-IED solutions combine ground-penetrating
-                radar technology with multi-spectrum sensors to detect and
-                neutralize explosive threats. Designed for both mounted and
-                dismounted operations, these systems provide real-time threat
-                assessment and remote neutralization capabilities to protect
-                personnel and critical assets.
+                Our anti-IED solutions are designed to enhance safety by
+                detecting and neutralizing explosive threats. Built for
+                operations, these systems provide real-time threat detection and
+                mitigation to safeguard personnel and critical assets.
               </p>
               <Button
                 variant="outline"
-                className="group border-blue-400/30 text-blue-400 hover:text-blue-300 hover:bg-blue-950/50 hover:border-blue-400/50 transition-all duration-300"
+                className="group border-blue-400/30 text-blue-500 hover:text-blue-300 hover:bg-blue-950/50 hover:border-blue-400/50 transition-all duration-300"
               >
                 Discover Capabilities
                 <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -206,22 +203,23 @@ const DefensePage = () => {
               className="w-full lg:w-1/2 order-2 lg:order-1"
             >
               <Badge className="bg-amber-500/10 text-amber-400 mb-6 border-0 py-1.5 px-3 text-sm">
-                Navigation Technology
+                Protective Gear
               </Badge>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                PNT (Position, Navigation & Time)
+                Bomb Disposal Suits
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Our resilient PNT solutions provide secure positioning,
-                navigation, and timing data in GPS-denied environments.
-                Utilizing advanced inertial navigation systems combined with
-                encrypted mesh networks, our technology ensures uninterrupted
-                operational capabilities for mission-critical systems even under
-                active signal jamming or spoofing attacks.
+                Our bomb disposal suits are developed to provide reliable
+                protection during explosive threat mitigation. Designed with
+                reinforced materials for impact resistance and mobility, these
+                suits support safe operation in high-risk environments. Ideal
+                for handling hazardous objects, they enable personnel to perform
+                critical tasks with greater confidence and security.
               </p>
+
               <Button
                 variant="outline"
-                className="group border-amber-400/30 text-amber-400 hover:text-amber-300 hover:bg-amber-950/50 hover:border-amber-400/50 transition-all duration-300"
+                className="group border-amber-400/30 text-amber-500 hover:text-amber-300 hover:bg-amber-950/50 hover:border-amber-400/50 transition-all duration-300"
               >
                 Explore Technology
                 <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -279,18 +277,18 @@ const DefensePage = () => {
               className="w-full lg:w-1/2 order-2"
             >
               <Badge className="bg-indigo-500/10 text-indigo-400 mb-6 border-0 py-1.5 px-3 text-sm">
-                RCIED Jammer
+                Swarm Drone Solution
               </Badge>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Vehicle-Mounted RCIED Jamming System
+                Coordinated Aerial Response Systems
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Our RCIED Jammer is a high-power, vehicle-integrated system
-                designed to neutralize radio-controlled improvised explosive
-                devices. Utilizing advanced signal detection and disruption
-                techniques, it safeguards convoys and tactical units by actively
-                jamming trigger frequencies across a broad spectrum, offering
-                unmatched protection in hostile environments.
+                Our swarm drone solutions are designed to support coordinated
+                aerial operations through multiple lightweight drones working
+                together. These systems enable wide-area coverage, flexible
+                deployment, and rapid situational response, making them
+                well-suited for surveillance, monitoring, and support roles
+                across various environments.
               </p>
 
               <Button

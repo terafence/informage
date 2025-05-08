@@ -97,7 +97,7 @@ const Informational: React.FC = () => {
               }}
               className="text-xl text-white/90 leading-relaxed"
             >
-              With a focus on innovation and adaptability, we deliver tools that empower defense forces worldwide with unmatched capability and reliability.
+              With a focus on innovation and adaptability, we deliver technologies that empower defense forces worldwide with unmatched capability and reliability.
             </motion.p>
             
             <motion.div

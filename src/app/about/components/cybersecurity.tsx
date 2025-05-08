@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { IconArrowRight, IconExternalLink } from "@tabler/icons-react";
+import Link from "next/link";
 
 // Animation variants
 const fadeIn = {
@@ -73,19 +74,21 @@ const CybersecurityPage = () => {
             </motion.p>
             
             <motion.div variants={fadeIn}>
+              <Link href="#cyber">
               <Button 
                 className="group px-6 py-3 text-lg bg-white text-zinc-900 hover:bg-white/90 transition-all duration-300"
               >
                 Explore Services
                 <IconArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
       </section>
       
       {/* Section 02 - Left Text / Right Image (SOC) */}
-      <section className="bg-zinc-900 py-24 overflow-hidden">
+      <section className="bg-zinc-900 py-24 overflow-hidden" id="cyber">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <motion.div 
@@ -104,7 +107,7 @@ const CybersecurityPage = () => {
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
                 Our 24/7 Security Operations Center provides continuous monitoring and incident response capabilities with real-time threat intelligence. Staffed by certified security analysts using advanced SIEM platforms, we deliver proactive defense against evolving cyber threats across your entire digital ecosystem.
               </p>
-              <Button variant="outline" className="group border-violet-400/30 text-violet-400 hover:text-violet-300 hover:bg-violet-950/50 hover:border-violet-400/50 transition-all duration-300">
+              <Button variant="outline" className="group border-violet-400/30 text-violet-500 hover:text-violet-300 hover:bg-violet-950/50 hover:border-violet-400/50 transition-all duration-300">
                 Learn More
                 <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Button>
@@ -169,7 +172,7 @@ const CybersecurityPage = () => {
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
                 Our comprehensive network security solutions implement zero-trust architecture with advanced intrusion prevention systems and secure access service edge (SASE) frameworks. We ensure enterprise-wide protection through next-generation firewalls, encrypted communication channels, and continuous vulnerability management.
               </p>
-              <Button variant="outline" className="group border-cyan-400/30 text-cyan-400 hover:text-cyan-300 hover:bg-cyan-950/50 hover:border-cyan-400/50 transition-all duration-300">
+              <Button variant="outline" className="group border-cyan-400/30 text-cyan-500 hover:text-cyan-300 hover:bg-cyan-950/50 hover:border-cyan-400/50 transition-all duration-300">
                 Discover Solutions
                 <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Button>
@@ -196,9 +199,9 @@ const CybersecurityPage = () => {
                 Advanced Cybersecurity
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Our proactive cybersecurity services combine threat intelligence with advanced endpoint protection and behavioral analytics to identify and neutralize sophisticated attacks. We implement customized security frameworks aligned with industry standards including NIST, ISO 27001, and CIS controls to protect your critical assets and sensitive data.
+                Our proactive cybersecurity services combine threat intelligence with advanced endpoint protection and behavioral analytics to identify and neutralize sophisticated attacks. We implement customized security frameworks aligned with industry standards to protect your critical assets and sensitive data.
               </p>
-              <Button variant="outline" className="group border-emerald-400/30 text-emerald-400 hover:text-emerald-300 hover:bg-emerald-950/50 hover:border-emerald-400/50 transition-all duration-300">
+              <Button variant="outline" className="group border-emerald-400/30 text-emerald-500 hover:text-emerald-300 hover:bg-emerald-950/50 hover:border-emerald-400/50 transition-all duration-300">
                 Explore Services
                 <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Button>
@@ -261,9 +264,9 @@ const CybersecurityPage = () => {
                 Cloud Security Services
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Our cloud security solutions protect multi-cloud environments through comprehensive identity management, data protection, and workload security. We implement cloud security posture management (CSPM) with continuous compliance monitoring across AWS, Azure, and Google Cloud platforms to ensure secure cloud adoption and operational excellence.
+                Our cloud security solutions protect multi-cloud environments through comprehensive identity management, data protection, and workload security. We implement cloud security  with continuous compliance monitoring across cloud platforms to ensure secure cloud adoption and operational excellence.
               </p>
-              <Button variant="outline" className="group border-blue-400/30 text-blue-400 hover:text-blue-300 hover:bg-blue-950/50 hover:border-blue-400/50 transition-all duration-300">
+              <Button variant="outline" className="group border-blue-400/30 text-blue-500 hover:text-blue-300 hover:bg-blue-950/50 hover:border-blue-400/50 transition-all duration-300">
                 View Solutions
                 <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Button>

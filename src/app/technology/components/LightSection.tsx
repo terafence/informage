@@ -1,8 +1,8 @@
 "use client";
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ShieldIcon } from 'lucide-react';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ShieldIcon } from "lucide-react";
 
 const LightSection = () => {
   return (
@@ -10,7 +10,7 @@ const LightSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left Column - Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -27,9 +27,9 @@ const LightSection = () => {
               <div className="absolute inset-0 bg-gradient-to-l from-zinc-50/20 to-transparent mix-blend-overlay" />
             </div>
           </motion.div>
-          
+
           {/* Right Column - Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -41,38 +41,54 @@ const LightSection = () => {
                 <ShieldIcon className="h-6 w-6 text-blue-600" />
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-zinc-900">
-                Advanced Cybersecurity
+                Advanced Cybersecurity Solutions
               </h2>
             </div>
-            
+
             <p className="text-zinc-700 text-lg leading-relaxed mb-8">
-              Our integrated cybersecurity solutions protect critical infrastructure and sensitive
-              data with adaptive threat monitoring and real-time response capabilities. 
-              Using AI-driven anomaly detection and quantum-resistant encryption protocols, 
-              we secure networks against sophisticated threats while ensuring operational continuity.
-              These systems are designed to meet the highest security standards for 
-              government, defense, and enterprise applications.
+              Our comprehensive IT and network security solutions safeguard
+              critical operations through centralized monitoring, proactive risk
+              management, and secure data handling. Designed for adaptability
+              across enterprise, government, and defense environments, these
+              systems support robust infrastructure protection, streamlined
+              operations, and long-term resilience against evolving threats.
             </p>
-            
+
             <div className="grid grid-cols-2 gap-6 mt-8">
               <div className="bg-white p-5 rounded-lg shadow-sm border border-zinc-100">
-                <div className="text-blue-600 font-bold text-xl mb-1">99.99%</div>
-                <div className="text-zinc-600">Threat detection rate</div>
+                <div className="text-blue-600 font-bold text-xl mb-1">
+                  Centralized Monitoring
+                </div>
+                <div className="text-zinc-600">
+                  Real-time visibility across networks
+                </div>
               </div>
-              
+
               <div className="bg-white p-5 rounded-lg shadow-sm border border-zinc-100">
-                <div className="text-blue-600 font-bold text-xl mb-1">&lt;10ms</div>
-                <div className="text-zinc-600">Response time</div>
+                <div className="text-blue-600 font-bold text-xl mb-1">
+                  Scalable Architecture
+                </div>
+                <div className="text-zinc-600">
+                  Easily adaptable to growing  needs
+                </div>
               </div>
-              
+
               <div className="bg-white p-5 rounded-lg shadow-sm border border-zinc-100">
-                <div className="text-blue-600 font-bold text-xl mb-1">24/7/365</div>
-                <div className="text-zinc-600">Active monitoring</div>
+                <div className="text-blue-600 font-bold text-xl mb-1">
+                  Data Protection
+                </div>
+                <div className="text-zinc-600">
+                  Safeguards information across all ends
+                </div>
               </div>
-              
+
               <div className="bg-white p-5 rounded-lg shadow-sm border border-zinc-100">
-                <div className="text-blue-600 font-bold text-xl mb-1">FIPS 140-3</div>
-                <div className="text-zinc-600">Compliance certified</div>
+                <div className="text-blue-600 font-bold text-xl mb-1">
+                  Risk Mitigation
+                </div>
+                <div className="text-zinc-600">
+                  Helps prevent disruption & security events
+                </div>
               </div>
             </div>
           </motion.div>

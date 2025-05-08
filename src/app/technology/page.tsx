@@ -6,8 +6,8 @@ import DarkSection from "./components/DarkSection";
 import LightSection from "./components/LightSection";
 
 export const metadata = {
-  title: 'Technology Solutions | Advanced PNT & Cybersecurity',
-  description: 'Discover our cutting-edge technology solutions in Position, Navigation & Time (PNT) and advanced cybersecurity systems for mission-critical applications.',
+  title: 'Technology Solutions by Informage Group Techno Solutions Pvt Ltd | Advanced Defense Solutions & Cybersecurity Solutions',
+  description: 'Discover our cutting-edge technology solutions in the advanced defense systems and advanced cybersecurity systems for mission-critical applications.',
 };
 
 export default function TechnologyPage() {

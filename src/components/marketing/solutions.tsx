@@ -100,24 +100,24 @@ const Solutions: React.FC = () => {
     {
       image: "/images/hero/ring-c-uxs.png",
       badge: { text: "Combat-Proven", color: "bg-red-600" },
-      title: "Ring C-UxS",
-      description: "A comprehensive solution for countering uncrewed systems with advanced GNSS manipulation technology, providing reliable protection for critical infrastructure.",
+      title: "RCIED Jammer",
+      description: "A high-power radio frequency jamming solution designed to neutralize remotely triggered explosive threats in mission-critical environments.",
       delay: 0.1,
       y: y1
     },
     {
       image: "/images/hero/pyramid-gnss.png",
       badge: { text: "Innovative", color: "bg-blue-600" },
-      title: "Pyramid GNSS",
-      description: "Software-only library detecting and alerting against smart spoofing & jamming attacks with industry-leading accuracy and minimal false positives.",
+      title: "Anti-Drone System",
+      description: "A modular counter-drone technology integrating detection, tracking, and neutralization for safeguarding sensitive airspace from aerial threats.",
       delay: 0.3,
       y: y2
     },
     {
       image: "/images/hero/boom-box.png",
       badge: { text: "Extended Range", color: "bg-emerald-600" },
-      title: "Boom-Box",
-      description: "Enhances the range of our solutions, turning them into strategic tools with over 50 Km reach for comprehensive regional protection capabilities.",
+      title: "Bomb Disposal Suit",
+      description: "A next-generation protective suit engineered to shield personnel during explosive ordnance disposal operations, offering enhanced mobility and blast resistance.",
       delay: 0.5,
       y: y3
     }
@@ -175,7 +175,7 @@ const Solutions: React.FC = () => {
           </motion.p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {solutions.map((solution, index) => (
             <motion.div 
               key={index} 

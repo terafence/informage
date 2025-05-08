@@ -1,8 +1,8 @@
 "use client";
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { CompassIcon } from 'lucide-react';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { CompassIcon } from "lucide-react";
 
 const DarkSection = () => {
   return (
@@ -10,7 +10,7 @@ const DarkSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left Column - Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -22,41 +22,42 @@ const DarkSection = () => {
                 <CompassIcon className="h-6 w-6 text-emerald-400" />
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-white">
-                PNT - Position, Navigation & Time
+                Tactical Defense Capabilities
               </h2>
             </div>
-            
+
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
-              Our advanced PNT solutions ensure precise positioning, reliable navigation, 
-              and accurate timing in challenging environments. Operating across multiple 
-              frequency bands with proprietary anti-jamming technology, our systems maintain 
-              operational integrity even when conventional GPS signals are compromised or denied.
-              These resilient solutions provide the foundation for mission-critical systems
-              in defense, aviation, and infrastructure protection applications.
+              We deliver versatile defense solutions built to operate
+              effectively in high-risk and dynamic environments. Designed with
+              field requirements in mind, our systems are rugged, dependable,
+              and tailored to enhance operational readiness across a wide range
+              of mission profiles. From base protection to rapid-response
+              deployment, we support forces with adaptable technologies for
+              evolving threats.
             </p>
-            
+
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
               <li className="flex items-center">
                 <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></div>
-                Multi-constellation compatibility
+                Mission-ready under harsh conditions
               </li>
               <li className="flex items-center">
                 <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></div>
-                Anti-spoofing capabilities
+                Built for tactical field operations
               </li>
               <li className="flex items-center">
                 <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></div>
-                Encrypted communication channels
+                Modular and scalable platforms
               </li>
               <li className="flex items-center">
                 <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></div>
-                Nanosecond timing precision
+                Enhanced threat mitigation
               </li>
             </ul>
           </motion.div>
-          
+
           {/* Right Column - Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

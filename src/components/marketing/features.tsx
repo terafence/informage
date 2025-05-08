@@ -63,20 +63,20 @@ const Features: React.FC = () => {
   const leftFeatures = [
     {
       icon: IconSatellite,
-      title: "GNSS Manipulation",
-      description: "Low-powered, smart GNSS manipulation to control enemy uncrewed systems.",
+      title: "RCIED Countermeasure",
+      description: "Preventing remote detonation of improvised explosives.",
       delay: 0.1
     },
     {
       icon: IconRadar,
-      title: "Passive RF Detection",
-      description: "Internal passive RF detection & classification with extensive threat libraries.",
+      title: "Secure Military Comms",
+      description: "Protected information exchange for defense.",
       delay: 0.2
     },
     {
       icon: IconRadio,
-      title: "Datalink Jamming",
-      description: "Smart FPV Datalink jamming for comprehensive 'detect and defeat' solutions.",
+      title: "EOD Personnel Protection",
+      description: "Specialized suits for man-made bomb disposal.",
       delay: 0.3
     }
   ];
@@ -84,20 +84,20 @@ const Features: React.FC = () => {
   const rightFeatures = [
     {
       icon: IconRocket,
-      title: "Extended Range",
-      description: "Range capabilities exceeding 50 Km with advanced strategic tools.",
+      title: "Counter-Unmanned Aerial System Capabilities",
+      description: "Neutralizing unauthorized aerial drones.",
       delay: 0.1
     },
     {
       icon: IconCpu,
-      title: "Compact & Affordable",
-      description: "Affordable, compact, and faster to deploy solutions for rapid response.",
+      title: "Autonomous Defense Swarms",
+      description: "Coordinated unmanned vehicles for military tasks.",
       delay: 0.2
     },
     {
       icon: IconShield,
-      title: "Multi-Domain Defense",
-      description: "Proven effectiveness against air, ground, and naval threats.",
+      title: "Integrated Threat Response",
+      description: "Unified systems for multi-domain threat neutralization.",
       delay: 0.3
     }
   ];
@@ -144,7 +144,7 @@ const Features: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-lg text-gray-600 text-center max-w-2xl mb-16"
           >
-            Advanced counter unmanned systems with state-of-the-art technology providing comprehensive protection against modern aerial threats.
+            Advanced counter unmanned systems with state-of-the-art technology providing comprehensive protection against modern threats.
           </motion.p>
         </div>
         
