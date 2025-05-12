@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Informational: React.FC = () => {
   const ref = useRef(null);
@@ -107,10 +108,12 @@ const Informational: React.FC = () => {
               }}
               className="pt-6"
             >
+              <Link href="/technology">
               <button className="group relative px-8 py-3 overflow-hidden rounded border border-emerald-500 text-white text-lg font-medium">
                 <span className="relative z-10">Discover More</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
               </button>
+              </Link>
             </motion.div>
           </motion.div>
           

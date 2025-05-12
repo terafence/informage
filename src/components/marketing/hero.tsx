@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-
+import Link from "next/link";
 const HeroSection: React.FC = () => {
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -83,10 +83,12 @@ const HeroSection: React.FC = () => {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
+                <Link href="/contact">
                 <Button className="bg-white hover:bg-white/90 text-black text-lg font-medium px-10 py-7 rounded-md group relative overflow-hidden">
                   <span className="relative z-10">Learn More</span>
                   <span className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-blue-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
                 </Button>
+                </Link>
               </motion.div>
             </motion.div>
 
