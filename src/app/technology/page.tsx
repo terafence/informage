@@ -20,7 +20,7 @@ export default function TechnologyPage() {
         {/* Hero Section */}
         <HeroSection />
         
-        {/* Dark Section with PNT */}
+        {/* Dark Section */}
         <DarkSection />
         
         {/* Light Section with Cybersecurity */}
