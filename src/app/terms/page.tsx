@@ -15,7 +15,7 @@ import {
 } from "tabler-icons-react";
 
 export default function TermsOfUsePage() {
-  const lastUpdated = "April 4, 2025";
+  const lastUpdated = "May 23, 2025";
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -64,7 +64,7 @@ export default function TermsOfUsePage() {
           {/* Introduction */}
           <div className="mb-10">
             <p className="text-lg leading-relaxed text-slate-700 mb-6">
-              Welcome to Terafence US. These Terms of Use govern your access to and use of our website, 
+              Welcome to Informage Group. These Terms of Use govern your access to and use of our website, 
               products, and services. Please read these Terms carefully before using our website or services.
             </p>
             
@@ -91,7 +91,7 @@ export default function TermsOfUsePage() {
                 </summary>
                 <div className="p-5 bg-slate-50 border-t border-slate-200">
                   <div className="text-slate-700 space-y-4">
-                    <p>By accessing or using the Terafence US website, you agree to be bound by these Terms of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site.</p>
+                    <p>By accessing or using the Informage Group website, you agree to be bound by these Terms of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site.</p>
                     
                     <p>We may revise these Terms of Use at any time without notice. By using this website, you agree to be bound by the current version of these Terms of Use.</p>
                     
@@ -112,17 +112,17 @@ export default function TermsOfUsePage() {
                 </summary>
                 <div className="p-5 bg-slate-50 border-t border-slate-200">
                   <div className="text-slate-700 space-y-4">
-                    <p>Permission is granted to temporarily download one copy of the materials (information or software) on Terafence US's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+                    <p>Permission is granted to temporarily download one copy of the materials (information or software) on Informage Group's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
                     
                     <ul className="list-disc pl-6 space-y-2">
                       <li>Modify or copy the materials;</li>
                       <li>Use the materials for any commercial purpose, or for any public display (commercial or non-commercial);</li>
-                      <li>Attempt to decompile or reverse engineer any software contained on Terafence US's website;</li>
+                      <li>Attempt to decompile or reverse engineer any software contained on Informage Group's website;</li>
                       <li>Remove any copyright or other proprietary notations from the materials; or</li>
                       <li>Transfer the materials to another person or "mirror" the materials on any other server.</li>
                     </ul>
                     
-                    <p>This license shall automatically terminate if you violate any of these restrictions and may be terminated by Terafence US at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.</p>
+                    <p>This license shall automatically terminate if you violate any of these restrictions and may be terminated by Informage Group at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.</p>
                   </div>
                 </div>
               </details>
@@ -139,9 +139,9 @@ export default function TermsOfUsePage() {
                 </summary>
                 <div className="p-5 bg-slate-50 border-t border-slate-200">
                   <div className="text-slate-700 space-y-4">
-                    <p>The materials on Terafence US's website are provided on an 'as is' basis. Terafence US makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+                    <p>The materials on Informage Group's website are provided on an 'as is' basis. Informage Group makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
                     
-                    <p>Further, Terafence US does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.</p>
+                    <p>Further, Informage Group does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.</p>
                   </div>
                 </div>
               </details>
@@ -158,7 +158,7 @@ export default function TermsOfUsePage() {
                 </summary>
                 <div className="p-5 bg-slate-50 border-t border-slate-200">
                   <div className="text-slate-700 space-y-4">
-                    <p>In no event shall Terafence US or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Terafence US's website, even if Terafence US or a Terafence US authorized representative has been notified orally or in writing of the possibility of such damage.</p>
+                    <p>In no event shall Informage Group or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Informage Group's website, even if Informage Group or a Informage Group authorized representative has been notified orally or in writing of the possibility of such damage.</p>
                     
                     <p>Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.</p>
                   </div>
@@ -177,7 +177,7 @@ export default function TermsOfUsePage() {
                 </summary>
                 <div className="p-5 bg-slate-50 border-t border-slate-200">
                   <div className="text-slate-700 space-y-4">
-                    <p>The materials appearing on Terafence US's website could include technical, typographical, or photographic errors. Terafence US does not warrant that any of the materials on its website are accurate, complete or current. Terafence US may make changes to the materials contained on its website at any time without notice. However, Terafence US does not make any commitment to update the materials.</p>
+                    <p>The materials appearing on Informage Group's website could include technical, typographical, or photographic errors. Informage Group does not warrant that any of the materials on its website are accurate, complete or current. Informage Group may make changes to the materials contained on its website at any time without notice. However, Informage Group does not make any commitment to update the materials.</p>
                   </div>
                 </div>
               </details>
@@ -194,7 +194,7 @@ export default function TermsOfUsePage() {
                 </summary>
                 <div className="p-5 bg-slate-50 border-t border-slate-200">
                   <div className="text-slate-700 space-y-4">
-                    <p>Terafence US has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Terafence US of the site. Use of any such linked website is at the user's own risk.</p>
+                    <p>Informage Group has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Informage Group of the site. Use of any such linked website is at the user's own risk.</p>
                   </div>
                 </div>
               </details>
@@ -211,7 +211,7 @@ export default function TermsOfUsePage() {
                 </summary>
                 <div className="p-5 bg-slate-50 border-t border-slate-200">
                   <div className="text-slate-700 space-y-4">
-                    <p>Terafence US may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.</p>
+                    <p>Informage Group may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.</p>
                   </div>
                 </div>
               </details>
@@ -249,9 +249,9 @@ export default function TermsOfUsePage() {
                 </summary>
                 <div className="p-5 bg-slate-50 border-t border-slate-200">
                   <div className="text-slate-700 space-y-4">
-                    <p>The website and its original content, features, and functionality are owned by Terafence US and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
+                    <p>The website and its original content, features, and functionality are owned by Informage Group and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
                     
-                    <p>Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of Terafence US.</p>
+                    <p>Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of Informage Group.</p>
                   </div>
                 </div>
               </details>
@@ -289,7 +289,7 @@ export default function TermsOfUsePage() {
                 </summary>
                 <div className="p-5 bg-slate-50 border-t border-slate-200">
                   <div className="text-slate-700 space-y-4">
-                    <p>You agree to defend, indemnify, and hold harmless Terafence US, its parent, subsidiaries, affiliates, and their respective directors, officers, employees, contractors, agents, suppliers, licensors, successors, and assigns from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms of Use or your use of the website.</p>
+                    <p>You agree to defend, indemnify, and hold harmless Informage Group, its parent, subsidiaries, affiliates, and their respective directors, officers, employees, contractors, agents, suppliers, licensors, successors, and assigns from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms of Use or your use of the website.</p>
                   </div>
                 </div>
               </details>
@@ -309,10 +309,9 @@ export default function TermsOfUsePage() {
                     <p>If you have any questions about these Terms of Use, please contact us at:</p>
                     
                     <div className="bg-white p-4 border border-slate-200 rounded-md">
-                      <p className="font-medium">Terafence US</p>
-                      <p>Email: legal@terafence.us</p>
-                      <p>Address: 123 Security Avenue, Suite 456, Cyber City, CA 90210</p>
-                      <p>Phone: (800) 555-0123</p>
+                      <p className="font-medium">Informage Group</p>
+                      <p>Email: contact@informagegroup.com</p>
+                      <p>Address: 209, Suncity Success Tower, Sector-65, Gurugram, Haryana-122005, India</p>
                     </div>
                   </div>
                 </div>
@@ -357,7 +356,7 @@ export default function TermsOfUsePage() {
                 <h3 className="text-lg font-semibold text-slate-800 mb-2">Legal Disclaimer</h3>
                 <p className="text-slate-600 text-sm">
                   This Terms of Use document is provided for general informational purposes only and does not constitute legal advice. 
-                  Terafence US makes no representations or warranties regarding the accuracy or completeness of these terms or their 
+                  Informage Group makes no representations or warranties regarding the accuracy or completeness of these terms or their 
                   suitability for any specific context. Users are advised to consult with qualified legal counsel to ensure 
                   compliance with all applicable laws and regulations relevant to their specific circumstances.
                 </p>
@@ -369,7 +368,7 @@ export default function TermsOfUsePage() {
           <div className="text-center p-6 border-t border-slate-200">
             <div className="flex items-center justify-center mb-3">
               <Clock size={18} className="text-slate-400 mr-2" />
-              <h3 className="text-lg font-medium text-slate-700">Document Version History | v1.0.0</h3>
+              <h3 className="text-lg font-medium text-slate-700">Document Version History | v1.1.4</h3>
             </div>
             <p className="text-sm text-slate-500">
               These Terms of Use were last updated on {lastUpdated}. Previous versions can be obtained by contacting us.

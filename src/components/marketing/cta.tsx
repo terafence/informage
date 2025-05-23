@@ -95,10 +95,8 @@ const Cta: React.FC = () => {
                           onChange={(e) => setFormState({ ...formState, interest: e.target.value })}
                         >
                           <option value="" disabled>Select your interest</option>
-                          <option value="ring">Ring C-UxS</option>
-                          <option value="pyramid">Pyramid GNSS</option>
-                          <option value="boom-box">Boom-Box</option>
-                          <option value="general">General Information</option>
+                          <option value="defense">Defense-related Products & Services</option>
+                          <option value="it">IT-related Products & Services</option>
                         </select>
                       </div>
                     </div>

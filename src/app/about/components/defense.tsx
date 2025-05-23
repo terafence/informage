@@ -111,7 +111,7 @@ const DefensePage = () => {
                 critical areas by addressing unauthorized aerial activity
                 through dependable and adaptable response measures.
               </p>
-              <Link href="/solutions">
+              <Link href="/solutions/anti">
                 <Button
                   variant="outline"
                   className="group border-emerald-400/30 text-emerald-500 hover:text-emerald-300 hover:bg-emerald-950/50 hover:border-emerald-400/50 transition-all duration-300"
@@ -184,13 +184,15 @@ const DefensePage = () => {
                 operations, these systems provide real-time threat detection and
                 mitigation to safeguard personnel and critical assets.
               </p>
-              <Button
-                variant="outline"
-                className="group border-blue-400/30 text-blue-500 hover:text-blue-300 hover:bg-blue-950/50 hover:border-blue-400/50 transition-all duration-300"
-              >
-                Discover Capabilities
-                <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <Link href="/solutions/rcied">
+                <Button
+                  variant="outline"
+                  className="group border-blue-400/30 text-blue-500 hover:text-blue-300 hover:bg-blue-950/50 hover:border-blue-400/50 transition-all duration-300"
+                >
+                  Discover Capabilities
+                  <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>
@@ -221,14 +223,15 @@ const DefensePage = () => {
                 for handling hazardous objects, they enable personnel to perform
                 critical tasks with greater confidence and security.
               </p>
-
-              <Button
-                variant="outline"
-                className="group border-amber-400/30 text-amber-500 hover:text-amber-300 hover:bg-amber-950/50 hover:border-amber-400/50 transition-all duration-300"
-              >
-                Explore Technology
-                <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <Link href="/solutions/bomb">
+                <Button
+                  variant="outline"
+                  className="group border-amber-400/30 text-amber-500 hover:text-amber-300 hover:bg-amber-950/50 hover:border-amber-400/50 transition-all duration-300"
+                >
+                  Explore Technology
+                  <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </motion.div>
 
             <motion.div
@@ -282,27 +285,26 @@ const DefensePage = () => {
               className="w-full lg:w-1/2 order-2"
             >
               <Badge className="bg-indigo-500/10 text-indigo-400 mb-6 border-0 py-1.5 px-3 text-sm">
-                Swarm Drone Solution
+                Safe Communications
               </Badge>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Coordinated Aerial Response Systems
+                Secure MMI Communication
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Our swarm drone solutions are designed to support coordinated
-                aerial operations through multiple lightweight drones working
-                together. These systems enable wide-area coverage, flexible
-                deployment, and rapid situational response, making them
-                well-suited for surveillance, monitoring, and support roles
-                across various environments.
+                Our solutions ensure clear, secure, and uninterrupted
+                communication across every terrain and threat scenario—whether
+                on the battlefield, in disaster zones, or deep within industrial
+                infrastructure.
               </p>
-
-              <Button
-                variant="outline"
-                className="group border-indigo-400/30 text-indigo-400 hover:text-indigo-300 hover:bg-indigo-950/50 hover:border-indigo-400/50 transition-all duration-300"
-              >
-                View Solutions
-                <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <Link href="/solutions/mmi">
+                <Button
+                  variant="outline"
+                  className="group border-indigo-400/30 text-indigo-400 hover:text-indigo-300 hover:bg-indigo-950/50 hover:border-indigo-400/50 transition-all duration-300"
+                >
+                  View Solutions
+                  <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>

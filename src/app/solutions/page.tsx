@@ -16,7 +16,31 @@ import {
   IconSparkles,
 } from "@tabler/icons-react";
 
-const categories = [
+// Type definitions
+interface Product {
+  id: string;
+  title: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  description: string;
+  tags: string[];
+  route: string;
+}
+
+interface Category {
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  products: Product[];
+  accentColor: "blue" | "emerald";
+}
+
+interface ProductCardProps {
+  product: Product;
+  accentColor: "blue" | "emerald";
+}
+
+const categories: Category[] = [
   {
     id: "defense",
     title: "Defense Solutions",
@@ -112,7 +136,7 @@ const itemVariants = {
   },
 };
 
-const ProductCard = ({ product, accentColor }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, accentColor }) => {
   const handleKnowMore = () => {
     window.location.href = product.route;
   };
@@ -170,7 +194,7 @@ const ProductCard = ({ product, accentColor }) => {
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-2">
-            {product.tags.map((tag, tagIndex) => (
+            {product.tags.map((tag: string, tagIndex: number) => (
               <motion.span
                 key={tag}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -218,7 +242,7 @@ const ProductCard = ({ product, accentColor }) => {
   );
 };
 
-const FloatingElements = () => (
+const FloatingElements: React.FC = () => (
   <div className="fixed inset-0 pointer-events-none overflow-hidden">
     {Array.from({ length: 12 }).map((_, i) => (
       <motion.div
@@ -255,7 +279,7 @@ const FloatingElements = () => (
   </div>
 );
 
-export default function SolutionsPage() {
+const SolutionsPage: React.FC = () => {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
@@ -263,7 +287,7 @@ export default function SolutionsPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
@@ -426,4 +450,6 @@ export default function SolutionsPage() {
       <Footer />
     </>
   );
-}
+};
+
+export default SolutionsPage;

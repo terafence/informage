@@ -4,6 +4,7 @@ import Informational from "@/components/marketing/info";
 import Solutions from "@/components/marketing/solutions";
 import About from "@/components/marketing/about";
 import CTA from "@/components/marketing/cta";
+import Cyber from "@/components/marketing/cyber";
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
       <Features />
       <Informational />
       <Solutions />
+      <Cyber/>
       <About />
       <CTA />
     </>

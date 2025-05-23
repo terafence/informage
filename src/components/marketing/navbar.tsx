@@ -31,37 +31,22 @@ const NAV_LINKS: NavLink[] = [
   //   name: "Features",
   //   href: "/",
   // },
-  // {
-  //   name: "Products",
-  //   href: "/",
-  //   // subMenu: [
-  //   //   {
-  //   //     name: "TFG 121",
-  //   //     href: "/devices",
-  //   //     description: "File Transfer for Critical Networks",
-  //   //   },
-  //   //   {
-  //   //     name: "TFG URP",
-  //   //     href: "/devices",
-  //   //     description: "Galvanic Network Separation",
-  //   //   },
-  //   //   {
-  //   //     name: "TFG BSG",
-  //   //     href: "/devices",
-  //   //     description: "Bi-Directional Secure Gateway",
-  //   //   },
-  //   //   {
-  //   //     name: "TFG MBSecure+",
-  //   //     href: "/devices",
-  //   //     description: "Air-Gap Security for SCADA",
-  //   //   },
-  //   //   {
-  //   //     name: "TFG VSecure",
-  //   //     href: "/devices",
-  //   //     description: "Air-Gap Protection",
-  //   //   },
-  //   // ],
-  // },
+  {
+    name: "Services",
+    href: "/",
+    subMenu: [
+      {
+        name: "Defense-related applications",
+        href: "/services/appsdefense",
+        description: "Know more about the domain.",
+      },
+      {
+        name: "IT applications",
+        href: "/services/appsit",
+        description: "Know more about the domain.",
+      },
+    ],
+  },
   {
     name: "Solutions",
     href: "/solutions",

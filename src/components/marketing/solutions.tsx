@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface SolutionCardProps {
   image: string;
@@ -73,7 +74,7 @@ const SolutionCard: React.FC<SolutionCardProps> = ({
           {/* View details link */}
           <div className="mt-8 overflow-hidden">
             <div className="transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex items-center text-emerald-400 font-medium">
-              <span>View Details</span>
+              <Link href="/solutions"><span>Know More</span></Link>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
@@ -153,7 +154,7 @@ const Solutions: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-4xl md:text-5xl font-bold text-center mb-6 text-white tracking-tight"
           >
-            Our Solutions
+            Defense-related Solutions
           </motion.h2>
 
           <motion.div

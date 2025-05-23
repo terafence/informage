@@ -14,7 +14,7 @@ import {
 } from "tabler-icons-react";
 
 export default function CookiePolicyPage() {
-  const lastUpdated = "April 4, 2025";
+  const lastUpdated = "April 22, 2025";
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -63,7 +63,7 @@ export default function CookiePolicyPage() {
           {/* Introduction */}
           <div className="mb-10">
             <p className="text-lg leading-relaxed text-slate-700 mb-6">
-              At Terafence US, we use cookies and similar technologies to enhance your browsing experience, 
+              At Informage Group, we use cookies and similar technologies to enhance your browsing experience, 
               analyze site traffic, personalize content, and serve targeted advertisements. This Cookie Policy 
               explains how we use cookies, your choices regarding cookies, and more information about cookies in general.
             </p>
@@ -328,10 +328,9 @@ export default function CookiePolicyPage() {
                     <p>If you have any questions about our Cookie Policy, please contact us at:</p>
                     
                     <div className="bg-white p-4 border border-slate-200 rounded-md">
-                      <p className="font-medium">Terafence US</p>
-                      <p>Email: privacy@terafence.us</p>
-                      <p>Address: 123 Security Avenue, Suite 456, Cyber City, CA 90210</p>
-                      <p>Phone: (800) 555-0123</p>
+                      <p className="font-medium">Informage Group</p>
+                      <p>Email: contact@informagegroup.com</p>
+                      <p>Address: 209, Suncity Success Tower, Sector-65, Gurugram, Haryana-122005, India</p>
                     </div>
                   </div>
                 </div>
@@ -370,7 +369,7 @@ export default function CookiePolicyPage() {
           <div className="text-center p-6 border-t border-slate-200">
             <div className="flex items-center justify-center mb-3">
               <Clock size={18} className="text-slate-400 mr-2" />
-              <h3 className="text-lg font-medium text-slate-700">Policy Version History | v1.0.0</h3>
+              <h3 className="text-lg font-medium text-slate-700">Policy Version History | v2.2.5</h3>
             </div>
             <p className="text-sm text-slate-500">
               This Cookie Policy was last updated on {lastUpdated}. Previous versions of our Cookie Policy can be obtained by contacting us.

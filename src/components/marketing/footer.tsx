@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { 
   IconMapPin, 
   IconMail, 
   IconArrowUp,
-  IconArrowNarrowRight
+  IconArrowNarrowRight,
+  IconLoader2,
+  IconCheck,
+  IconX
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 
@@ -40,17 +43,119 @@ const AnimatedElement = ({
   );
 };
 
+// Newsletter subscription hook
+const useNewsletter = () => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const subscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email) {
+      setStatus('error');
+      setMessage('Please enter your email address');
+      return;
+    }
+
+    setStatus('loading');
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus('success');
+        setMessage(data.message);
+        setEmail(''); // Clear the input on success
+      } else {
+        setStatus('error');
+        setMessage(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setMessage('Network error. Please check your connection and try again.');
+      console.error('Newsletter subscription error:', error);
+    }
+
+    // Auto-clear status after 5 seconds
+    setTimeout(() => {
+      setStatus('idle');
+      setMessage('');
+    }, 5000);
+  };
+
+  const reset = () => {
+    setStatus('idle');
+    setMessage('');
+  };
+
+  return {
+    email,
+    setEmail,
+    status,
+    message,
+    subscribe,
+    reset
+  };
+};
+
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const newsletter = useNewsletter();
   
   const links = [
-    { text: "Services", href: "/services" },
     { text: "Solutions", href: "/solutions" },
     { text: "About Us", href: "/about" },
     { text: "Contact", href: "/contact" },
-    { text: "Blog", href: "/blog" },
-    { text: "Careers", href: "/careers" },
   ];
+
+  const getStatusIcon = () => {
+    switch (newsletter.status) {
+      case 'loading':
+        return <IconLoader2 className="h-5 w-5 text-gray-300 animate-spin" strokeWidth={1.5} />;
+      case 'success':
+        return <IconCheck className="h-5 w-5 text-green-400" strokeWidth={1.5} />;
+      case 'error':
+        return <IconX className="h-5 w-5 text-red-400" strokeWidth={1.5} />;
+      default:
+        return <IconArrowNarrowRight className="h-5 w-5 text-gray-300 group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-1" strokeWidth={1.5} />;
+    }
+  };
+
+  const getButtonStyles = () => {
+    const base = "transition-all duration-300 px-4 rounded-r-md group flex items-center justify-center min-w-[52px]";
+    switch (newsletter.status) {
+      case 'loading':
+        return `${base} bg-zinc-700 cursor-not-allowed`;
+      case 'success':
+        return `${base} bg-green-600 hover:bg-green-500`;
+      case 'error':
+        return `${base} bg-red-600 hover:bg-red-500`;
+      default:
+        return `${base} bg-zinc-800 hover:bg-zinc-700`;
+    }
+  };
+
+  const getInputStyles = () => {
+    const base = "flex-grow bg-zinc-900/50 border text-white px-4 py-3 text-sm focus:outline-none transition-all duration-300 rounded-l-md placeholder:text-zinc-500";
+    switch (newsletter.status) {
+      case 'success':
+        return `${base} border-green-500 focus:border-green-400`;
+      case 'error':
+        return `${base} border-red-500 focus:border-red-400`;
+      default:
+        return `${base} border-zinc-700 focus:border-zinc-500`;
+    }
+  };
 
   return (
     <footer className="w-full bg-[#0A0A0A] text-white relative overflow-hidden">
@@ -100,19 +205,52 @@ const Footer: React.FC = () => {
               {/* Newsletter subscription */}
               <div className="mt-auto pt-4 w-full max-w-md">
                 <h4 className="text-sm uppercase tracking-wider text-gray-300 mb-3">Stay Updated</h4>
-                <div className="flex">
-                  <input 
-                    type="email" 
-                    placeholder="Your email address" 
-                    className="flex-grow bg-zinc-900/50 border border-zinc-700 text-white px-4 py-3 text-sm focus:outline-none focus:border-zinc-500 transition-colors rounded-l-md placeholder:text-zinc-500"
-                  />
-                  <button 
-                    className="bg-zinc-800 hover:bg-zinc-700 transition-colors duration-300 px-4 rounded-r-md group flex items-center justify-center"
-                    aria-label="Subscribe to newsletter"
-                  >
-                    <IconArrowNarrowRight className="h-5 w-5 text-gray-300 group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-1" strokeWidth={1.5} />
-                  </button>
-                </div>
+                
+                {/* Newsletter Form */}
+                <form onSubmit={newsletter.subscribe} className="space-y-3">
+                  <div className="flex">
+                    <input 
+                      type="email" 
+                      value={newsletter.email}
+                      onChange={(e) => newsletter.setEmail(e.target.value)}
+                      placeholder="Your email address" 
+                      className={getInputStyles()}
+                      disabled={newsletter.status === 'loading'}
+                      required
+                    />
+                    <button 
+                      type="submit"
+                      className={getButtonStyles()}
+                      disabled={newsletter.status === 'loading'}
+                      aria-label="Subscribe to newsletter"
+                    >
+                      {getStatusIcon()}
+                    </button>
+                  </div>
+                  
+                  {/* Status Message */}
+                  {newsletter.message && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className={`text-xs px-3 py-2 rounded-md ${
+                        newsletter.status === 'success' 
+                          ? 'bg-green-500/10 text-green-400 border border-green-500/20' 
+                          : newsletter.status === 'error'
+                          ? 'bg-red-500/10 text-red-400 border border-red-500/20'
+                          : 'bg-zinc-800/50 text-gray-300 border border-zinc-700'
+                      }`}
+                    >
+                      {newsletter.message}
+                    </motion.div>
+                  )}
+                </form>
+                
+                {/* Privacy Note */}
+                <p className="text-xs text-gray-500 mt-2">
+                  We respect your privacy. Unsubscribe at any time.
+                </p>
               </div>
             </div>
           </AnimatedElement>
@@ -159,7 +297,7 @@ const Footer: React.FC = () => {
                   <div>
                     <address className="text-gray-300 not-italic text-sm leading-relaxed">
                       209, Suncity Success Tower, Sector-65,<br /> 
-                      Gurgaon, Haryana-122005, India
+                      Gurugram, Haryana-122005, India
                     </address>
                   </div>
                 </li>
