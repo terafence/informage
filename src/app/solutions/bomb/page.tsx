@@ -663,14 +663,14 @@ export default function BombDisposalSuitsPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-6 text-center">
-                  <div className="text-2xl font-bold text-white mb-2">NATO</div>
+                  <div className="text-2xl font-bold text-white mb-2">International</div>
                   <div className="text-sm text-gray-300">
                     Standards Compliant
                   </div>
                 </div>
                 <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-6 text-center">
-                  <div className="text-2xl font-bold text-white mb-2">ISO</div>
-                  <div className="text-sm text-gray-300">Certified Quality</div>
+                  <div className="text-2xl font-bold text-white mb-2">Best</div>
+                  <div className="text-sm text-gray-300">Quality Assurance</div>
                 </div>
               </div>
             </motion.div>
@@ -740,7 +740,7 @@ export default function BombDisposalSuitsPage() {
                 {
                   title: "Certified & Compliant",
                   description:
-                    "Meets NATO and international safety standards (NIJ, STANAG, ISO) for maximum reliability",
+                    "Meets international safety standards for maximum reliability",
                   icon: IconCertificate,
                 },
               ].map((advantage, index) => (

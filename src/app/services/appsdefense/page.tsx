@@ -200,12 +200,11 @@ export default function DefenseServicesPage() {
                 {
                   title: "Anti-Drone Systems",
                   description:
-                    "Comprehensive unmanned aerial vehicle detection, tracking, and neutralization systems for airspace protection and security.",
+                    "Comprehensive unmanned aerial vehicle ( UAV ) detection, tracking, and neutralization systems for airspace protection and security across multiple domains.",
                   icon: IconDrone,
                   applications: [
                     "Military base defense against reconnaissance drones",
                     "Airport perimeter security and airspace protection",
-                    "Government facility protection for VIP events",
                     "Critical infrastructure safeguarding operations",
                     "Border patrol drone interception capabilities",
                   ],

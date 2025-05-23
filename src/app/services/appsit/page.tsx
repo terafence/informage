@@ -443,7 +443,7 @@ export default function ITServicesPage() {
                     { name: "MongoDB & NoSQL", icon: IconBrandMongodb },
                     { name: "SQL Server & Analytics", icon: IconAnalyze },
                   ],
-                  color: "red",
+                  color: "orange",
                 },
                 {
                   category: "Integration Tools",
@@ -453,7 +453,7 @@ export default function ITServicesPage() {
                     { name: "API Management", icon: IconApiApp },
                     { name: "Microservices", icon: IconNetwork },
                   ],
-                  color: "pink",
+                  color: "orange",
                 },
               ].map((stack, stackIndex) => (
                 <motion.div
