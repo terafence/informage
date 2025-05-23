@@ -43,7 +43,7 @@ const CtaSection = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/about">
+                <Link href="/solutions">
                   <Button className="group px-6 py-3 bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 text-white rounded-xl">
                     <Shield className="w-5 h-5 mr-2" />
                     <span>Defense Solutions</span>
@@ -51,7 +51,7 @@ const CtaSection = () => {
                   </Button>
                 </Link>
                 
-                <Link href="/about">
+                <Link href="/solutions">
                   <Button variant="outline" className="group px-6 py-3 border-zinc-300 text-zinc-700 hover:bg-zinc-50 rounded-xl">
                     <Server className="w-5 h-5 mr-2" />
                     <span>Cybersecurity Services</span>
@@ -83,21 +83,17 @@ const CtaSection = () => {
                       <h3 className="text-xl md:text-2xl font-bold text-zinc-900 mb-4">Industry Expertise</h3>
                       
                       <p className="text-zinc-600 mb-6">
-                        With over 5 years of experience in defense and cybersecurity, our team brings specialized knowledge to every project.
+                        With over 12 years of experience in defense and cybersecurity, our team brings specialized knowledge to every project.
                       </p>
                       
-                      <div className="grid grid-cols-3 gap-4 w-full">
+                      <div className="grid grid-cols-2 gap-6 w-full">
                         <div className="py-3 px-1 rounded-lg bg-zinc-50 text-center">
-                          <div className="text-emerald-600 font-bold">5+</div>
-                          <div className="text-xs text-zinc-500">Years</div>
+                          <div className="text-emerald-600 font-bold">12+</div>
+                          <div className="text-base text-zinc-500">Years</div>
                         </div>
                         <div className="py-3 px-1 rounded-lg bg-zinc-50 text-center">
-                          <div className="text-emerald-600 font-bold">50+</div>
-                          <div className="text-xs text-zinc-500">Clients</div>
-                        </div>
-                        <div className="py-3 px-1 rounded-lg bg-zinc-50 text-center">
-                          <div className="text-emerald-600 font-bold">50+</div>
-                          <div className="text-xs text-zinc-500">Success Stories</div>
+                          <div className="text-emerald-600 font-bold">100+</div>
+                          <div className="text-base text-zinc-500">Clients</div>
                         </div>
                       </div>
                     </div>

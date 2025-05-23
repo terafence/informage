@@ -55,10 +55,10 @@ const NAV_LINKS: NavLink[] = [
   //   name: "Use Cases",
   //   href: "/",
   // },
-  // {
-  //   name: "Downloads",
-  //   href: "/",
-  // },
+  {
+    name: "Downloads",
+    href: "/soon",
+  },
   {
     name: "Contact",
     href: "/contact",

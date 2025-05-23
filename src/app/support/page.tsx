@@ -69,43 +69,43 @@ export default function SupportPage() {
     {
       icon: Shield,
       title: "Defense Solutions",
-      description: "Support for anti-drone systems, military communications, and counter-UxS technologies",
-      path: "/support/defense",
+      description: "Looking for anti-drone systems, military communications, and counter-UAV technologies",
+      path: "/services/appsdefense",
       color: "from-emerald-500 to-blue-500"
     },
     {
       icon: LifeBuoy,
-      title: "Technical Support",
-      description: "Get technical assistance for deployment, integration, and troubleshooting",
-      path: "/support/technical",
+      title: "Technical Information",
+      description: "Get technical knowledge for deployment, integration, and troubleshooting",
+      path: "/technology",
       color: "from-purple-500 to-blue-500"
     },
     {
       icon: Users,
       title: "Customer Service",
       description: "Account management, orders, shipping, and general inquiries",
-      path: "/support/customer",
+      path: "/soon",
       color: "from-amber-500 to-orange-500"
     },
     {
       icon: Bot,
-      title: "Cybersecurity Support",
+      title: "Cybersecurity Arena",
       description: "SOC services, network security, and incident response assistance",
-      path: "/support/cybersecurity",
+      path: "/services/appsit",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: FileText,
       title: "Documentation",
       description: "Product manuals, technical specifications, and implementation guides",
-      path: "/support/documentation",
+      path: "/soon",
       color: "from-indigo-500 to-violet-500"
     },
     {
       icon: WifiOff,
       title: "RCIED & Anti-IED Support",
       description: "Support for jamming technologies and counter-IED systems",
-      path: "/support/jamming",
+      path: "/soon",
       color: "from-red-500 to-pink-500"
     },
   ];
