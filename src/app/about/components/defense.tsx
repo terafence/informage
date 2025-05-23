@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { IconArrowRight } from "@tabler/icons-react";
+import Link from "next/link";
 
 // Animation variants
 const fadeIn = {
@@ -77,10 +78,12 @@ const DefensePage = () => {
             </motion.p>
 
             <motion.div variants={fadeIn}>
-              <Button className="group px-6 py-3 text-lg bg-white text-zinc-900 hover:bg-white/90 transition-all duration-300">
-                Explore Solutions
-                <IconArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <Link href="/solutions">
+                <Button className="group px-6 py-3 text-lg bg-white text-zinc-900 hover:bg-white/90 transition-all duration-300">
+                  Explore Solutions
+                  <IconArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -108,13 +111,15 @@ const DefensePage = () => {
                 critical areas by addressing unauthorized aerial activity
                 through dependable and adaptable response measures.
               </p>
-              <Button
-                variant="outline"
-                className="group border-emerald-400/30 text-emerald-500 hover:text-emerald-300 hover:bg-emerald-950/50 hover:border-emerald-400/50 transition-all duration-300"
-              >
-                Learn More
-                <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <Link href="/solutions">
+                <Button
+                  variant="outline"
+                  className="group border-emerald-400/30 text-emerald-500 hover:text-emerald-300 hover:bg-emerald-950/50 hover:border-emerald-400/50 transition-all duration-300"
+                >
+                  Learn More
+                  <IconArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
             </motion.div>
 
             <motion.div

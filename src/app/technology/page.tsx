@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from "@/components/marketing/navbar";
-import Footer from "@/components/marketing/footer";
+  import Navbar from "@/components/marketing/navbar";
+  import Footer from "@/components/marketing/footer";
 import HeroSection from "./components/HeroSection";
 import DarkSection from "./components/DarkSection";
 import LightSection from "./components/LightSection";

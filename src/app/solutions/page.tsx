@@ -1,277 +1,429 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Link from "next/link"
-import Image from "next/image"
-import Navbar from "@/components/marketing/navbar"
-import Footer from "@/components/marketing/footer"
-import { ArrowRight, ShieldCheck, Cog, LockKeyhole } from "lucide-react"
+import React, { useState, useEffect } from "react";
+import Navbar from "@/components/marketing/navbar";
+import Footer from "@/components/marketing/footer";
+import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  IconShield,
+  IconAntennaBars5,
+  IconDeviceGamepad,
+  IconDeviceMobile,
+  IconNetwork,
+  IconServer,
+  IconCloud,
+  IconArrowRight,
+  IconSparkles,
+} from "@tabler/icons-react";
 
-type TabContent = {
-  title: string
-  subtitle: string
-  description: string
-  image: string
-  icon: React.ReactNode
-  features: string[]
-  cta: {
-    text: string
-    link: string
-  }
-}
-
-const tabContents: Record<string, TabContent> = {
-  "secure-it": {
-    title: "Securing the IT",
-    subtitle: "Enterprise-grade IT Security",
-    description: "Terafence's solution for IT provide robust protection for your information technology infrastructure with our proprietary hardware-based network isolation technology. Our products create a secure, unidirectional gateway that physically prevents unauthorized access while allowing safe data flow.",
-    image: "/images/secure-it.svg",
-    icon: <ShieldCheck className="w-6 h-6" />,
-    features: [
-      "Hardware-based network isolation",
-      "Zero-trust architecture implementation",
-      "Unidirectional gateway technology",
-      "Real-time threat monitoring",
-      "Seamless integration with existing IT infrastructure"
+const categories = [
+  {
+    id: "defense",
+    title: "Defense Solutions",
+    description: "Next-generation defense technologies for modern warfare",
+    icon: IconShield,
+    products: [
+      {
+        id: "rcied",
+        title: "RCIED Jammer",
+        icon: IconAntennaBars5,
+        description: "RCIED Jammers are specialized electronic devices",
+        tags: ["Smart Jamming", "Counter-IED", "Real-Time Control"],
+        route: "/solutions/rcied",
+      },
+      {
+        id: "anti-drone",
+        title: "Anti-drone Systems",
+        icon: IconDeviceMobile,
+        description: "AI-powered drone detection and neutralization platform",
+        tags: ["Tracking", "Acoustic Sensors", "Detection"],
+        route: "/solutions/anti",
+      },
+      {
+        id: "bomb-suits",
+        title: "Bomb Disposal Suits",
+        icon: IconDeviceGamepad,
+        description: "Lightweight, high-protection EOD equipment",
+        tags: ["NIJ-Level Protection", "Ergonomic Design", "Lightweight"],
+        route: "/solutions/bomb",
+      },
+      {
+        id: "mmi-comms",
+        title: "MMI Communications",
+        icon: IconNetwork,
+        description: "Secure military-grade communication systems",
+        tags: ["Advanced Voice Clarity", "Interoperability", "Tactical"],
+        route: "/solutions/mmi",
+      },
     ],
-    cta: {
-      text: "Discover the world of IT security",
-      link: "/solutions/secure-it"
-    }
+    accentColor: "blue",
   },
-  "secure-ot": {
-    title: "Securing the OT",
-    subtitle: "Operational Technology Protection",
-    description: "Terafence's solution for OT safeguard critical operational technology environments such as industrial control systems, SCADA networks, and IoT deployments. Our hardware-enforced security creates an air-gap equivalent that allows data visibility without exposure to cyber threats.",
-    image: "/images/secure-ot.svg",
-    icon: <Cog className="w-6 h-6" />,
-    features: [
-      "Industrial control system protection",
-      "SCADA network security",
-      "IoT device safeguarding",
-      "Protocol-aware filtering",
-      "Legacy system compatibility"
+  {
+    id: "it",
+    title: "IT & Cybersecurity",
+    description: "Enterprise digital transformation and security solutions",
+    icon: IconServer,
+    products: [
+      {
+        id: "system-integration",
+        title: "System Integration",
+        icon: IconCloud,
+        description: "Seamless enterprise system integration and automation",
+        tags: ["Cloud-native", "Scalable", "API-first"],
+        route: "/solutions/system",
+      },
+      {
+        id: "data",
+        title: "Data Migration",
+        icon: IconNetwork,
+        description: "Seamless. Secure. Scalable.",
+        tags: ["Cloud Data Migration", "Database Migration", "Reliable"],
+        route: "/solutions/data",
+      },
     ],
-    cta: {
-      text: "Explore the OT Security",
-      link: "/solutions/secure-ot"
-    }
+    accentColor: "emerald",
   },
-  "secure-cam": {
-    title: "Securing the CCTV",
-    subtitle: "Control Access & Monitoring",
-    description: "Terafence's solution for CCTV infrastructure provides comprehensive control access and monitoring solutions for high-security environments. Our technology enables secure monitoring of video feeds, access control systems, and other critical security infrastructure while eliminating attack vectors.",
-    image: "/images/secure-cam.svg",
-    icon: <LockKeyhole className="w-6 h-6" />,
-    features: [
-      "Secure video surveillance systems",
-      "Access control protection",
-      "Physical security integration",
-      "Secure remote monitoring",
-      "Tamper-proof logging and auditing"
-    ],
-    cta: {
-      text: "Learn about securing CCTV",
-      link: "/solutions/secure-cam"
-    }
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.3,
+      duration: 0.8,
+    },
   },
-}
+};
 
-export default function Solutions() {
-  const [activeTab, setActiveTab] = useState("secure-it")
+const itemVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 25,
+      duration: 0.7,
+    },
+  },
+};
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  }
-  
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
-      opacity: 1,
-      transition: { type: "spring", stiffness: 300, damping: 24 }
-    }
-  }
-
-  // Create a custom tabs component instead of using the UI library
-  const handleTabClick = (tabKey: string) => {
-    setActiveTab(tabKey);
+const ProductCard = ({ product, accentColor }) => {
+  const handleKnowMore = () => {
+    window.location.href = product.route;
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-50 to-white">
-      <Navbar />
-      <div className="flex-grow container mx-auto px-4 py-16 max-w-7xl">
-        <motion.div
-          className="flex flex-col items-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="text-sky-600 font-semibold mb-2 tracking-wide">TERAFENCE SOLUTIONS</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-blue-900 text-center mb-4">
-            Industrial-Grade Cybersecurity
-          </h1>
-          <p className="text-slate-600 max-w-2xl text-center">
-            Hardware-enforced network isolation solutions that protect your most critical IT, OT, and security infrastructure from cyber threats.
-          </p>
-        </motion.div>
+    <motion.div
+      className="group relative"
+      variants={itemVariants}
+      whileHover={{ scale: 1.03, y: -5 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+    >
+      <div
+        className={`relative overflow-hidden rounded-2xl backdrop-blur-xl border transition-all duration-500
+        ${
+          accentColor === "blue"
+            ? "bg-gradient-to-br from-blue-500/10 to-purple-600/10 border-blue-400/20 hover:border-blue-400/50 hover:from-blue-500/15 hover:to-purple-600/15"
+            : "bg-gradient-to-br from-emerald-500/10 to-teal-600/10 border-emerald-400/20 hover:border-emerald-400/50 hover:from-emerald-500/15 hover:to-teal-600/15"
+        }`}
+      >
+        {/* Glow Effect */}
+        <div
+          className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl
+          ${
+            accentColor === "blue"
+              ? "bg-gradient-to-r from-blue-400/20 to-purple-500/20"
+              : "bg-gradient-to-r from-emerald-400/20 to-teal-500/20"
+          }
+        `}
+        />
 
-        {/* Custom Tab Navigation */}
-        <div className="relative mb-12 max-w-2xl mx-auto">
-          {/* Tab Background with Indicator */}
-          <div className="absolute inset-0 bg-white rounded-full shadow-md"></div>
-          {/* Active Tab Indicator */}
-          <motion.div 
-            className="absolute h-full bg-gradient-to-r from-sky-500 to-sky-600 rounded-full shadow-lg"
-            initial={false}
-            animate={{ 
-              left: `${Object.keys(tabContents).indexOf(activeTab) * (100 / Object.keys(tabContents).length)}%`,
-              width: `${100 / Object.keys(tabContents).length}%`
-            }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          />
-          
-          {/* Tab Buttons */}
-          <div className="relative flex justify-between p-1">
-            {Object.keys(tabContents).map((tabKey) => (
-              <button
-                key={tabKey}
-                className={`flex-1 py-3 px-4 z-10 font-medium text-center transition-colors duration-200 rounded-full ${
-                  activeTab === tabKey ? "text-white" : "text-slate-700 hover:text-slate-900"
+        <div className="relative p-6 h-full flex flex-col">
+          {/* Product Header */}
+          <div className="flex items-start space-x-4 mb-4">
+            <motion.div
+              className={`p-3 rounded-xl border backdrop-blur-sm
+                ${
+                  accentColor === "blue"
+                    ? "bg-blue-500/20 border-blue-400/30"
+                    : "bg-emerald-500/20 border-emerald-400/30"
                 }`}
-                onClick={() => handleTabClick(tabKey)}
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <product.icon size={28} className="text-white" />
+            </motion.div>
+            <div className="flex-1 min-w-0">
+              <h4 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
+                {product.title}
+              </h4>
+              <p className="text-sm text-gray-300 leading-relaxed">
+                {product.description}
+              </p>
+            </div>
+          </div>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mb-2">
+            {product.tags.map((tag, tagIndex) => (
+              <motion.span
+                key={tag}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: tagIndex * 0.1 }}
+                className={`px-3 py-1 text-xs font-medium rounded-lg border backdrop-blur-sm
+        ${
+          accentColor === "blue"
+            ? "bg-blue-500/10 text-blue-200 border-blue-400/30"
+            : "bg-emerald-500/10 text-emerald-200 border-emerald-400/30"
+        }`}
               >
-                <div className="flex items-center justify-center">
-                  <span className={`text-sm md:text-base ${activeTab === tabKey ? "" : "group-hover:text-slate-900"}`}>
-                    {tabContents[tabKey].title}
-                  </span>
-                </div>
-              </button>
+                {tag}
+              </motion.span>
             ))}
           </div>
-        </div>
 
-        {/* Tab Content */}
-        <div className="w-full">
-          <AnimatePresence mode="wait">
-            {Object.keys(tabContents).map((tabKey) => (
-              activeTab === tabKey && (
+          {/* Know More Button */}
+          <div className="mt-4 flex justify-center">
+            <motion.button
+              onClick={handleKnowMore}
+              className={`py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-300 backdrop-blur-sm border
+                ${
+                  accentColor === "blue"
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-blue-500/50 text-white shadow-lg shadow-blue-500/25"
+                    : "bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 border-emerald-500/50 text-white shadow-lg shadow-emerald-500/25"
+                } hover:shadow-xl`}
+              whileHover={{ scale: 1.02, y: -1 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="flex items-center space-x-2">
+                <span>Learn More</span>
                 <motion.div
-                  key={tabKey}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                      <div className="p-10 md:p-14 flex flex-col justify-center relative z-10">
-                        <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-medium mb-6 w-fit">
-                          <div className="mr-2 bg-blue-100 p-2 rounded-full">
-                            {tabContents[tabKey].icon}
-                          </div>
-                          <span>{tabContents[tabKey].subtitle}</span>
-                        </div>
-                        
-                        <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-6">{tabContents[tabKey].title}</h2>
-                        <p className="text-slate-600 mb-8 leading-relaxed text-lg">{tabContents[tabKey].description}</p>
-                        
-                        <motion.ul 
-                          className="space-y-4 mb-10"
-                          variants={containerVariants}
-                          initial="hidden"
-                          animate="visible"
-                        >
-                          {tabContents[tabKey].features.map((feature, index) => (
-                            <motion.li 
-                              key={index} 
-                              className="flex items-start"
-                              variants={itemVariants}
-                            >
-                              <div className="flex-shrink-0 h-6 w-6 rounded-full bg-green-100 flex items-center justify-center mr-4 mt-1">
-                                <svg className="h-4 w-4 text-green-600" viewBox="0 0 20 20" fill="currentColor">
-                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
-                              </div>
-                              <span className="text-slate-700 text-lg">{feature}</span>
-                            </motion.li>
-                          ))}
-                        </motion.ul>
-                        
-                        <div className="flex flex-col sm:flex-row gap-4">
-                          <Link
-                            href={`mailto:info@terafence.in`}
-                            className="flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl"
-                          >
-                            {tabContents[tabKey].cta.text}
-                            <ArrowRight className="ml-2 w-5 h-5" />
-                          </Link>
-                          <Link
-                            href={`mailto:info@terafence.in`}
-                            className="flex items-center justify-center px-8 py-4 border-2 border-blue-600 text-blue-700 font-medium rounded-xl hover:bg-blue-50 transition-colors"
-                          >
-                            Contact Sales
-                          </Link>
-                        </div>
-                      </div>
-                      
-                      <div className="relative h-full min-h-[400px] lg:min-h-[600px] bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
-                        {/* Decorative circles */}
-                        <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-blue-100 opacity-30 blur-3xl"></div>
-                        <div className="absolute bottom-1/3 left-1/3 w-48 h-48 rounded-full bg-red-100 opacity-20 blur-2xl"></div>
-                        
-                        <motion.div
-                          className="absolute inset-0 w-full h-full flex items-center justify-center p-10"
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.5, delay: 0.2 }}
-                        >
-                          <Image
-                            src={tabContents[tabKey].image || "/images/gen1.svg"}
-                            alt={tabContents[tabKey].title}
-                            fill
-                            className="object-contain p-6"
-                            priority
-                          />
-                        </motion.div>
-                      </div>
-                    </div>
-                  </div>
+                  <IconArrowRight size={16} />
                 </motion.div>
-              )
-            ))}
-          </AnimatePresence>
+              </span>
+            </motion.button>
+          </div>
         </div>
-        
-        <motion.div 
-          className="mt-24 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-6">Ready to secure your critical infrastructure?</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto mb-8">
-            Talk to our security experts today to discover how Terafence&apos;s hardware-enforced security solutions can protect your organization.
-          </p>
-          <Link
-            href={`mailto:info@terafence.in`}
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-sky-600 to-sky-700 text-white font-medium rounded-xl hover:from-sky-700 hover:to-sky-800 transition-all shadow-lg hover:shadow-xl"
-          >
-            Schedule a Consultation
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Link>
+      </div>
+    </motion.div>
+  );
+};
+
+const FloatingElements = () => (
+  <div className="fixed inset-0 pointer-events-none overflow-hidden">
+    {Array.from({ length: 12 }).map((_, i) => (
+      <motion.div
+        key={i}
+        className="absolute w-1 h-1 bg-white/10 rounded-full"
+        initial={{
+          x:
+            Math.random() *
+            (typeof window !== "undefined" ? window.innerWidth : 1920),
+          y:
+            Math.random() *
+            (typeof window !== "undefined" ? window.innerHeight : 1080),
+        }}
+        animate={{
+          y: [
+            null,
+            Math.random() *
+              (typeof window !== "undefined" ? window.innerHeight : 1080),
+          ],
+          x: [
+            null,
+            Math.random() *
+              (typeof window !== "undefined" ? window.innerWidth : 1920),
+          ],
+        }}
+        transition={{
+          duration: Math.random() * 25 + 15,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "linear",
+        }}
+      />
+    ))}
+  </div>
+);
+
+export default function SolutionsPage() {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return (
+    <>
+      <Navbar />
+      <div className="relative h-screen bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 text-white overflow-hidden">
+        {/* Enhanced Background */}
+        <motion.div className="fixed inset-0 opacity-40" style={{ y, opacity }}>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.15),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(168,85,247,0.15),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.08),transparent_70%)]" />
         </motion.div>
+
+        {/* Subtle Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+
+        {/* Mouse Follower */}
+        <motion.div
+          className="fixed w-80 h-80 pointer-events-none z-0"
+          style={{
+            left: mousePosition.x - 160,
+            top: mousePosition.y - 160,
+          }}
+          animate={{
+            x: [0, 15, 0],
+            y: [0, -15, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <div className="w-full h-full bg-gradient-radial from-blue-500/8 via-purple-500/4 to-transparent rounded-full blur-3xl" />
+        </motion.div>
+
+        <FloatingElements />
+
+        <main className="relative z-10 h-full flex flex-col px-8 md:px-16 lg:px-24 xl:px-32 py-12">
+          {/* Header */}
+          <motion.header
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="text-center mb-12"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="inline-flex items-center px-4 py-2 rounded-full bg-white/5 backdrop-blur-lg border border-white/10 mb-2"
+            >
+              <IconSparkles size={18} className="text-blue-400 mr-2" />
+              <span className="text-sm font-medium text-white/90">
+                We do Reliable Innovations!
+              </span>
+            </motion.div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-0 leading-tight">
+              <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-emerald-400 bg-clip-text text-transparent drop-shadow-2xl">
+                Solutions
+              </span>{" "}
+              &nbsp;
+              <span className="text-white/95">Redefined</span>
+            </h1>
+          </motion.header>
+
+          {/* Two Column Layout */}
+          <motion.section
+            className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 min-h-0"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {/* Defense Solutions - Takes 2/3 width */}
+            <motion.div
+              variants={itemVariants}
+              className="lg:col-span-2 flex flex-col h-full"
+            >
+              {/* Defense Category Header */}
+              <div className="flex items-center mb-6">
+                <motion.div
+                  className="p-4 rounded-2xl border backdrop-blur-lg mr-6 bg-gradient-to-br from-blue-600/20 to-purple-600/20 border-blue-400/30"
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <IconShield size={40} className="text-white" />
+                </motion.div>
+                <div className="flex-1">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                    Defense Solutions
+                  </h2>
+                  <p className="text-base text-gray-300 leading-relaxed">
+                    Next-generation defense technologies for modern warfare
+                  </p>
+                </div>
+              </div>
+
+              {/* Defense Products Grid - 2x2 */}
+              <motion.div
+                className="flex-1 grid grid-cols-2 grid-rows-2 gap-6"
+                variants={containerVariants}
+              >
+                {categories[0].products.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    accentColor="blue"
+                  />
+                ))}
+              </motion.div>
+            </motion.div>
+
+            {/* IT & Cybersecurity - Takes 1/3 width */}
+            <motion.div
+              variants={itemVariants}
+              className="lg:col-span-1 flex flex-col h-full"
+            >
+              {/* IT Category Header */}
+              <div className="flex items-center mb-6">
+                <motion.div
+                  className="p-4 rounded-2xl border backdrop-blur-lg mr-4 bg-gradient-to-br from-emerald-600/20 to-teal-600/20 border-emerald-400/30"
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <IconServer size={40} className="text-white" />
+                </motion.div>
+                <div className="flex-1">
+                  <h2 className="text-3xl md:text-4xl  font-bold text-white mb-2">
+                    IT & Cybersecurity
+                  </h2>
+                  <p className="text-base text-gray-300 leading-relaxed">
+                    Enterprise digital transformation solutions
+                  </p>
+                </div>
+              </div>
+
+              {/* IT Products Grid - 1x2 */}
+              <motion.div
+                className="flex-1 grid grid-cols-1 grid-rows-2 gap-6"
+                variants={containerVariants}
+              >
+                {categories[1].products.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    accentColor="emerald"
+                  />
+                ))}
+              </motion.div>
+            </motion.div>
+          </motion.section>
+        </main>
       </div>
       <Footer />
-    </div>
-  )
+    </>
+  );
 }

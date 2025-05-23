@@ -27,53 +27,53 @@ const NAV_LINKS: NavLink[] = [
     name: "Technology",
     href: "/technology",
   },
-  {
-    name: "Features",
-    href: "/",
-  },
-  {
-    name: "Products",
-    href: "/",
-    // subMenu: [
-    //   {
-    //     name: "TFG 121",
-    //     href: "/devices",
-    //     description: "File Transfer for Critical Networks",
-    //   },
-    //   {
-    //     name: "TFG URP",
-    //     href: "/devices",
-    //     description: "Galvanic Network Separation",
-    //   },
-    //   {
-    //     name: "TFG BSG",
-    //     href: "/devices",
-    //     description: "Bi-Directional Secure Gateway",
-    //   },
-    //   {
-    //     name: "TFG MBSecure+",
-    //     href: "/devices",
-    //     description: "Air-Gap Security for SCADA",
-    //   },
-    //   {
-    //     name: "TFG VSecure",
-    //     href: "/devices",
-    //     description: "Air-Gap Protection",
-    //   },
-    // ],
-  },
+  // {
+  //   name: "Features",
+  //   href: "/",
+  // },
+  // {
+  //   name: "Products",
+  //   href: "/",
+  //   // subMenu: [
+  //   //   {
+  //   //     name: "TFG 121",
+  //   //     href: "/devices",
+  //   //     description: "File Transfer for Critical Networks",
+  //   //   },
+  //   //   {
+  //   //     name: "TFG URP",
+  //   //     href: "/devices",
+  //   //     description: "Galvanic Network Separation",
+  //   //   },
+  //   //   {
+  //   //     name: "TFG BSG",
+  //   //     href: "/devices",
+  //   //     description: "Bi-Directional Secure Gateway",
+  //   //   },
+  //   //   {
+  //   //     name: "TFG MBSecure+",
+  //   //     href: "/devices",
+  //   //     description: "Air-Gap Security for SCADA",
+  //   //   },
+  //   //   {
+  //   //     name: "TFG VSecure",
+  //   //     href: "/devices",
+  //   //     description: "Air-Gap Protection",
+  //   //   },
+  //   // ],
+  // },
   {
     name: "Solutions",
-    href: "/",
+    href: "/solutions",
   },
   // {
   //   name: "Use Cases",
   //   href: "/",
   // },
-  {
-    name: "Downloads",
-    href: "/",
-  },
+  // {
+  //   name: "Downloads",
+  //   href: "/",
+  // },
   {
     name: "Contact",
     href: "/contact",
